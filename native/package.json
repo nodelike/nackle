@@ -1,0 +1,9 @@
+{
+  "name": "nackle-vibrancy",
+  "version": "1.0.0",
+  "private": true,
+  "main": "build/Release/vibrancy.node",
+  "dependencies": {
+    "node-addon-api": "^8.0.0"
+  }
+}

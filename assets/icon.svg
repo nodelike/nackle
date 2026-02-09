@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!--
+    Variant A: Stronger front face contrast. 
+    Brighter wireframe, more aggressive glow, front face lighter.
+  -->
+  
+  <defs>
+    <filter id="glow-strong">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <linearGradient id="topLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a277ff" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#a277ff" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="sideLight" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0%" stop-color="#a277ff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.12"/>
+    </linearGradient>
+    <linearGradient id="faceGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2545" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#1a1830" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" fill="#0d0b14"/>
+
+  <!-- Ambient glow behind the N -->
+  <path 
+    d="M 112,408 L 112,112 L 188,112 L 188,272 L 324,112 L 400,112 L 400,408 L 324,408 L 324,248 L 188,408 Z"
+    fill="#a277ff" opacity="0.06" filter="url(#shadow)"
+  />
+
+  <!-- Drop shadow -->
+  <path 
+    d="M 130,426 L 130,146 L 198,146 L 198,294 L 334,146 L 402,146 L 402,426 L 334,426 L 334,278 L 198,426 Z"
+    fill="#000000" opacity="0.5" filter="url(#shadow)"
+  />
+
+  <!-- === BACK FACE === -->
+  <path 
+    d="M 128,392 L 128,96 L 204,96 L 204,256 L 340,96 L 416,96 L 416,392 L 340,392 L 340,232 L 204,392 Z"
+    fill="#12101c" stroke="#a277ff" stroke-width="0.8" stroke-linejoin="miter" opacity="0.35"
+  />
+
+  <!-- === EXTRUSION TOP FACES === -->
+  <polygon points="112,112 188,112 204,96 128,96" fill="url(#topLight)" stroke="#a277ff" stroke-width="1.2" stroke-opacity="0.5"/>
+  <polygon points="188,272 324,112 340,96 204,256" fill="url(#topLight)" stroke="#a277ff" stroke-width="1.2" stroke-opacity="0.45"/>
+  <polygon points="324,112 400,112 416,96 340,96" fill="url(#topLight)" stroke="#a277ff" stroke-width="1.2" stroke-opacity="0.5"/>
+
+  <!-- === EXTRUSION SIDE FACES === -->
+  <polygon points="400,112 400,408 416,392 416,96" fill="url(#sideLight)" stroke="#a277ff" stroke-width="0.8" stroke-opacity="0.3"/>
+  <polygon points="188,112 188,272 204,256 204,96" fill="url(#sideLight)" stroke="#a277ff" stroke-width="0.6" stroke-opacity="0.2"/>
+
+  <!-- Bottom + left edges (shadow) -->
+  <polygon points="112,408 188,408 204,392 128,392" fill="#000" opacity="0.2" stroke="#a277ff" stroke-width="0.5" stroke-opacity="0.12"/>
+  <polygon points="324,408 400,408 416,392 340,392" fill="#000" opacity="0.2" stroke="#a277ff" stroke-width="0.5" stroke-opacity="0.12"/>
+  <polygon points="112,112 112,408 128,392 128,96" fill="#000" opacity="0.1" stroke="#a277ff" stroke-width="0.5" stroke-opacity="0.1"/>
+  <polygon points="324,248 188,408 204,392 340,232" fill="#000" opacity="0.1" stroke="#a277ff" stroke-width="0.5" stroke-opacity="0.1"/>
+
+  <!-- === FRONT FACE === -->
+  <path 
+    d="M 112,408 L 112,112 L 188,112 L 188,272 L 324,112 L 400,112 L 400,408 L 324,408 L 324,248 L 188,408 Z"
+    fill="url(#faceGrad)"
+  />
+  <path 
+    d="M 112,408 L 112,112 L 188,112 L 188,272 L 324,112 L 400,112 L 400,408 L 324,408 L 324,248 L 188,408 Z"
+    fill="url(#topLight)"
+  />
+
+  <!-- Diagonal slab highlight -->
+  <polygon points="188,272 324,112 324,248 188,408" fill="#a277ff" opacity="0.14"/>
+
+  <!-- Front wireframe — STRONG glow -->
+  <path 
+    d="M 112,408 L 112,112 L 188,112 L 188,272 L 324,112 L 400,112 L 400,408 L 324,408 L 324,248 L 188,408 Z"
+    fill="none" stroke="#a277ff" stroke-width="3" stroke-linejoin="miter"
+    filter="url(#glow-strong)"
+  />
+
+  <!-- Inner wireframe -->
+  <path 
+    d="M 130,390 L 130,130 L 176,130 L 176,308 L 336,130 L 382,130 L 382,390 L 336,390 L 336,212 L 176,390 Z"
+    fill="none" stroke="#a277ff" stroke-width="0.8" stroke-linejoin="miter" opacity="0.25"
+  />
+
+  <!-- Structure lines -->
+  <line x1="188" y1="260" x2="324" y2="260" stroke="#a277ff" stroke-width="0.5" opacity="0.1"/>
+  <line x1="256" y1="112" x2="256" y2="408" stroke="#a277ff" stroke-width="0.5" opacity="0.08"/>
+
+  <!-- Vertex anchors — brighter -->
+  <g fill="#a277ff">
+    <rect x="106" y="106" width="12" height="12" opacity="0.9"/>
+    <rect x="106" y="402" width="12" height="12" opacity="0.7"/>
+    <rect x="394" y="106" width="12" height="12" opacity="0.9"/>
+    <rect x="394" y="402" width="12" height="12" opacity="0.7"/>
+    <rect x="182" y="106" width="12" height="12" opacity="0.9"/>
+    <rect x="182" y="266" width="12" height="12" opacity="0.8"/>
+    <rect x="318" y="106" width="12" height="12" opacity="0.9"/>
+    <rect x="318" y="242" width="12" height="12" opacity="0.8"/>
+  </g>
+
+  <rect x="2" y="2" width="508" height="508"
+    fill="none" stroke="#a277ff" stroke-width="1" opacity="0.12"/>
+</svg>

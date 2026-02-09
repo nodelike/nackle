@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="80 68 360 368" width="360" height="368">
+  <defs>
+    <filter id="glow-strong">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="topLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="currentColor" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="sideLight" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0%" stop-color="currentColor" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="faceGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="currentColor" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+
+  <!-- === BACK FACE === -->
+  <path 
+    d="M 128,392 L 128,96 L 204,96 L 204,256 L 340,96 L 416,96 L 416,392 L 340,392 L 340,232 L 204,392 Z"
+    fill="currentColor" fill-opacity="0.04" stroke="currentColor" stroke-width="0.8" stroke-linejoin="miter" stroke-opacity="0.2"
+  />
+
+  <!-- === EXTRUSION TOP FACES === -->
+  <polygon points="112,112 188,112 204,96 128,96" fill="url(#topLight)" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+  <polygon points="188,272 324,112 340,96 204,256" fill="url(#topLight)" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.35"/>
+  <polygon points="324,112 400,112 416,96 340,96" fill="url(#topLight)" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+
+  <!-- === EXTRUSION SIDE FACES === -->
+  <polygon points="400,112 400,408 416,392 416,96" fill="url(#sideLight)" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.25"/>
+  <polygon points="188,112 188,272 204,256 204,96" fill="url(#sideLight)" stroke="currentColor" stroke-width="0.6" stroke-opacity="0.15"/>
+
+  <!-- Bottom + left edges -->
+  <polygon points="112,408 188,408 204,392 128,392" fill="currentColor" fill-opacity="0.03" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.1"/>
+  <polygon points="324,408 400,408 416,392 340,392" fill="currentColor" fill-opacity="0.03" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.1"/>
+  <polygon points="112,112 112,408 128,392 128,96" fill="currentColor" fill-opacity="0.02" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.08"/>
+  <polygon points="324,248 188,408 204,392 340,232" fill="currentColor" fill-opacity="0.02" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.08"/>
+
+  <!-- === FRONT FACE === -->
+  <path 
+    d="M 112,408 L 112,112 L 188,112 L 188,272 L 324,112 L 400,112 L 400,408 L 324,408 L 324,248 L 188,408 Z"
+    fill="url(#faceGrad)"
+  />
+
+  <!-- Diagonal slab highlight -->
+  <polygon points="188,272 324,112 324,248 188,408" fill="currentColor" fill-opacity="0.1"/>
+
+  <!-- Front wireframe — glowing -->
+  <path 
+    d="M 112,408 L 112,112 L 188,112 L 188,272 L 324,112 L 400,112 L 400,408 L 324,408 L 324,248 L 188,408 Z"
+    fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="miter"
+    filter="url(#glow-strong)"
+  />
+
+  <!-- Inner wireframe -->
+  <path 
+    d="M 130,390 L 130,130 L 176,130 L 176,308 L 336,130 L 382,130 L 382,390 L 336,390 L 336,212 L 176,390 Z"
+    fill="none" stroke="currentColor" stroke-width="0.8" stroke-linejoin="miter" opacity="0.25"
+  />
+
+  <!-- Structure lines -->
+  <line x1="188" y1="260" x2="324" y2="260" stroke="currentColor" stroke-width="0.5" opacity="0.1"/>
+  <line x1="256" y1="112" x2="256" y2="408" stroke="currentColor" stroke-width="0.5" opacity="0.08"/>
+
+  <!-- Vertex anchors -->
+  <g fill="currentColor">
+    <rect x="106" y="106" width="12" height="12" opacity="0.9"/>
+    <rect x="106" y="402" width="12" height="12" opacity="0.7"/>
+    <rect x="394" y="106" width="12" height="12" opacity="0.9"/>
+    <rect x="394" y="402" width="12" height="12" opacity="0.7"/>
+    <rect x="182" y="106" width="12" height="12" opacity="0.9"/>
+    <rect x="182" y="266" width="12" height="12" opacity="0.8"/>
+    <rect x="318" y="106" width="12" height="12" opacity="0.9"/>
+    <rect x="318" y="242" width="12" height="12" opacity="0.8"/>
+  </g>
+</svg>

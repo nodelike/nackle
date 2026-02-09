@@ -1,0 +1,58 @@
+{
+  "name": "nackle",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fast, minimal, shortcut-driven todo app",
+  "author": "Nackle",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "postinstall": "electron-rebuild -f -w better-sqlite3 && npx @electron/rebuild -f --module-dir native",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder --dir && node build/make-dmg.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.7.0",
+    "node-addon-api": "^8.5.0",
+    "node-gyp": "^12.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "appdmg": "^0.6.6",
+    "electron": "^33.3.1",
+    "electron-builder": "^26.7.0",
+    "vite": "^6.1.0",
+    "vite-plugin-electron": "^0.28.8",
+    "vite-plugin-electron-renderer": "^0.14.6"
+  },
+  "build": {
+    "appId": "com.nodelike.nackle",
+    "productName": "Nackle",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "assets/**/*",
+      "native/build/Release/vibrancy.node"
+    ],
+    "asarUnpack": [
+      "native/**/*.node",
+      "node_modules/better-sqlite3/**/*.node"
+    ],
+    "mac": {
+      "target": "dir",
+      "icon": "assets/icon.icns",
+      "category": "public.app-category.productivity",
+      "darkModeSupport": true,
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false
+    },
+    "afterPack": "./build/afterPack.js"
+  }
+}
