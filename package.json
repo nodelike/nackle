@@ -1,6 +1,6 @@
 {
   "name": "nackle",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "description": "Fast, minimal, shortcut-driven todo app",
   "author": "Nackle",
@@ -56,11 +56,17 @@
       "target": [
         {
           "target": "dmg",
-          "arch": ["x64", "arm64"]
+          "arch": [
+            "x64",
+            "arm64"
+          ]
         },
         {
           "target": "zip",
-          "arch": ["x64", "arm64"]
+          "arch": [
+            "x64",
+            "arm64"
+          ]
         }
       ],
       "icon": "assets/icon.icns",
@@ -78,8 +84,17 @@
         "height": 380
       },
       "contents": [
-        { "x": 160, "y": 175, "type": "file" },
-        { "x": 380, "y": 175, "type": "link", "path": "/Applications" }
+        {
+          "x": 160,
+          "y": 175,
+          "type": "file"
+        },
+        {
+          "x": 380,
+          "y": 175,
+          "type": "link",
+          "path": "/Applications"
+        }
       ]
     },
     "afterPack": "./build/afterPack.js"
