@@ -22,7 +22,7 @@ const S = {
         animation: "fadeIn 0.1s ease",
     },
     stepLabel: {
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         fontSize: 10,
         color: "var(--fg-muted)",
         letterSpacing: 1,
@@ -41,12 +41,12 @@ const S = {
         border: "none",
         outline: "none",
         color: "var(--fg)",
-        fontFamily: "'Outfit', sans-serif",
-        fontSize: 15,
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
+        fontSize: 14,
         fontWeight: 400,
     },
     hint: {
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         fontSize: 10,
         color: "var(--fg-muted)",
         flexShrink: 0,
@@ -68,7 +68,7 @@ const S = {
     itemIcon: { fontSize: 10, width: 16, textAlign: "center", flexShrink: 0 },
     createItem: { color: "var(--accent-secondary)" },
     selectedBadge: {
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         fontSize: 10,
         fontWeight: 600,
         padding: "2px 8px",

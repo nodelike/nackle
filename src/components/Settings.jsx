@@ -10,7 +10,7 @@ const st = {
         fontSize: 13,
         fontWeight: 600,
         color: "var(--fg-muted)",
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         letterSpacing: 1,
         textTransform: "uppercase",
         marginTop: 28,
@@ -28,13 +28,13 @@ const st = {
     label: {
         fontSize: 14,
         color: "var(--fg)",
-        fontFamily: "'Outfit', sans-serif",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         opacity: 0.85,
     },
     hint: {
         fontSize: 11,
         color: "var(--fg-muted)",
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         marginTop: 3,
         opacity: 0.7,
     },
@@ -104,7 +104,7 @@ const st = {
     sliderValue: {
         fontSize: 11,
         color: "var(--fg-muted)",
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         minWidth: 32,
         textAlign: "right",
     },
@@ -141,7 +141,7 @@ const st = {
     },
     themeName: {
         fontSize: 13,
-        fontFamily: "'Outfit', sans-serif",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         color: "var(--fg)",
         opacity: 0.85,
     },
@@ -171,7 +171,7 @@ const st = {
         border: "1px solid var(--border)",
         color: "var(--fg-muted)",
         fontSize: 12,
-        fontFamily: "'Outfit', sans-serif",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         padding: "6px 16px",
         borderRadius: 0,
         cursor: "pointer",
@@ -217,7 +217,7 @@ const st = {
         border: "1px solid var(--border)",
         color: "var(--fg-muted)",
         fontSize: 12,
-        fontFamily: "'Outfit', sans-serif",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         padding: "6px 16px",
         borderRadius: 0,
         cursor: "pointer",
@@ -228,7 +228,7 @@ const st = {
         border: "1px solid var(--danger)",
         color: "var(--danger)",
         fontSize: 12,
-        fontFamily: "'Outfit', sans-serif",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         fontWeight: 500,
         padding: "6px 16px",
         borderRadius: 0,
@@ -297,7 +297,7 @@ function Slider({ min, max, step, value, onChange }) {
     );
 }
 
-const Settings = memo(function Settings({ settings, onSaveSetting, onWipeAllData, themes, currentTheme }) {
+const Settings = memo(function Settings({ settings, onSaveSetting, onWipeAllData, themes, currentTheme, appVersion }) {
     const [confirmWipe, setConfirmWipe] = useState(false);
 
     const save = useCallback(
@@ -376,6 +376,13 @@ const Settings = memo(function Settings({ settings, onSaveSetting, onWipeAllData
                     Wipe all data
                 </button>
             </div>
+
+            {/* Version */}
+            {appVersion && (
+                <div style={{ marginTop: 32, fontSize: 11, color: "var(--fg-muted)", opacity: 0.4 }}>
+                    Nackle v{appVersion}
+                </div>
+            )}
 
             {/* Confirm dialog */}
             {confirmWipe && (

@@ -22,23 +22,26 @@ export default function TodoApp() {
     const [paletteOpen, setPaletteOpen] = useState(false);
     const [captureOpen, setCaptureOpen] = useState(false);
     const [appSettings, setAppSettings] = useState({});
+    const [appVersion, setAppVersion] = useState("");
 
     // ── Load ──
     useEffect(() => {
         (async () => {
             try {
-                const [cols, archCols, tds, arch, settings] = await Promise.all([
+                const [cols, archCols, tds, arch, settings, version] = await Promise.all([
                     window.db.getCollections(),
                     window.db.getArchivedCollections(),
                     window.db.getTodos(),
                     window.db.getArchived(),
                     window.db.getSettings(),
+                    window.db.getVersion(),
                 ]);
                 setCollections(cols);
                 setArchivedCollections(archCols);
                 setTodos(tds);
                 setArchived(arch);
                 setAppSettings(settings);
+                setAppVersion(version);
             } catch (e) {
                 console.error("Load failed:", e);
             }
@@ -466,6 +469,7 @@ export default function TodoApp() {
                 onArchiveCollection={archiveCollection}
                 onDeleteCollection={deleteCollection}
                 onOpenSettings={() => setActiveCollection("__settings__")}
+                appVersion={appVersion}
             />
 
             <div style={S.main}>
@@ -492,6 +496,7 @@ export default function TodoApp() {
                         onWipeAllData={handleWipeAllData}
                         themes={themes}
                         currentTheme={themeName}
+                        appVersion={appVersion}
                     />
                 ) : isArchive ? (
                     <ArchiveView

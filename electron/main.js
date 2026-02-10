@@ -293,6 +293,8 @@ function registerIPC() {
     applyWindowSettings();
   });
 
+  ipcMain.handle("app:getVersion", () => app.getVersion());
+
   ipcMain.handle("app:setDockIcon", (_, accentColor) => {
     setDockIcon(accentColor);
   });

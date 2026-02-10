@@ -111,19 +111,6 @@ const TodoItem = memo(function TodoItem({
                 </span>
             )}
 
-            {/* Positional priority pill */}
-            {!isArchived && !isDone && priorityLabel && (
-                <span
-                    className="priority-pill"
-                    style={{
-                        ...S.priorityPill,
-                        color: priorityColor,
-                        borderColor: priorityColor + "40",
-                    }}>
-                    {priorityLabel}
-                </span>
-            )}
-
             {/* Collection badge */}
             {showCollection && (
                 <span
@@ -139,6 +126,19 @@ const TodoItem = memo(function TodoItem({
                     }}
                     title={`Go to ${getCollectionName(todo.collection_id)}`}>
                     {getCollectionName(todo.collection_id)}
+                </span>
+            )}
+
+            {/* Positional priority pill */}
+            {!isArchived && !isDone && priorityLabel && (
+                <span
+                    className="priority-pill"
+                    style={{
+                        ...S.priorityPill,
+                        color: priorityColor,
+                        borderColor: priorityColor + "40",
+                    }}>
+                    {priorityLabel}
                 </span>
             )}
 

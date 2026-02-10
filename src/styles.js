@@ -1,5 +1,5 @@
 export const CSS = `
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 :root { --bg-alpha: 1; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { background: transparent !important; }
@@ -52,14 +52,14 @@ input::placeholder { color: var(--fg-muted); }
 
 export const S = {
     // Layout
-    container: { display: "flex", height: "100vh", color: "var(--fg)", fontFamily: "'Outfit', sans-serif", overflow: "hidden" },
+    container: { display: "flex", height: "100vh", color: "var(--fg)", fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace", overflow: "hidden" },
 
     // Sidebar
     sidebar: { display: "flex", flexDirection: "column", borderRight: "1px solid var(--border)", flexShrink: 0, position: "relative" },
     dragRegion: { position: "absolute", top: 0, left: 0, right: 0, height: 28, WebkitAppRegion: "drag" },
     sidebarHeader: { display: "flex", alignItems: "center", gap: 5, marginBottom: 28, paddingLeft: 4, paddingTop: 8 },
     logo: { fontSize: 18 },
-    logoText: { fontFamily: "'JetBrains Mono', monospace", fontSize: 13, fontWeight: 600, letterSpacing: 3, color: "var(--accent)" },
+    logoText: { fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace", fontSize: 13, fontWeight: 600, letterSpacing: 3, color: "var(--accent)" },
     sidebarSection: { flex: 1, display: "flex", flexDirection: "column", gap: 1, overflowY: "auto" },
     sidebarDivider: { height: 1, background: "var(--border)", margin: "6px 8px" },
     collectionItem: {
@@ -70,7 +70,7 @@ export const S = {
         borderRadius: 0,
         cursor: "pointer",
         transition: "background 0.15s ease",
-        fontSize: 14,
+        fontSize: 13,
         fontWeight: 400,
         position: "relative",
         borderLeftWidth: 2,
@@ -80,7 +80,7 @@ export const S = {
     collectionItemActive: { background: "color-mix(in srgb, var(--accent) 8%, transparent)", fontWeight: 500, borderLeftColor: "var(--accent)" },
     collectionIcon: { fontSize: 10, width: 16, textAlign: "center", flexShrink: 0 },
     collectionName: { flex: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" },
-    badge: { fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: "var(--fg-muted)", minWidth: 18, textAlign: "right", flexShrink: 0 },
+    badge: { fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace", fontSize: 11, color: "var(--fg-muted)", minWidth: 18, textAlign: "right", flexShrink: 0 },
     colActions: {
         display: "flex",
         gap: 2,
@@ -107,8 +107,8 @@ export const S = {
         border: "1px solid rgba(255,255,255,0.1)",
         borderRadius: 0,
         color: "var(--fg)",
-        fontFamily: "'Outfit', sans-serif",
-        fontSize: 14,
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
+        fontSize: 13,
         padding: "2px 6px",
         outline: "none",
     },
@@ -118,7 +118,7 @@ export const S = {
         border: "none",
         color: "var(--fg-muted)",
         fontSize: 13,
-        fontFamily: "'Outfit', sans-serif",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         cursor: "pointer",
         padding: "6px 10px",
         borderRadius: 0,
@@ -132,14 +132,14 @@ export const S = {
         border: "1px solid rgba(255,255,255,0.08)",
         borderRadius: 0,
         color: "var(--fg)",
-        fontFamily: "'Outfit', sans-serif",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         fontSize: 13,
         padding: "7px 10px",
         outline: "none",
     },
     shortcuts: { marginTop: 12, fontSize: 11, color: "var(--fg-muted)", lineHeight: 2, paddingLeft: 4, opacity: 0.6 },
     shortcutKey: {
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         fontSize: 10,
         background: "color-mix(in srgb, var(--accent) 8%, transparent)",
         padding: "1px 5px",
@@ -168,14 +168,14 @@ export const S = {
         padding: "4px 6px",
         borderRadius: 0,
         transition: "color 0.15s",
-        fontFamily: "monospace",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         WebkitAppRegion: "no-drag",
     },
     headerGroup: { display: "flex", alignItems: "center", gap: 10, flex: 1 },
     headerIcon: { fontSize: 12 },
-    title: { fontSize: 18, fontWeight: 600, color: "var(--fg)", letterSpacing: -0.3 },
+    title: { fontSize: 16, fontWeight: 600, color: "var(--fg)", letterSpacing: -0.3 },
     titleEditable: {
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: 600,
         color: "var(--fg)",
         letterSpacing: -0.3,
@@ -185,7 +185,7 @@ export const S = {
         paddingBottom: 1,
     },
     titleInput: {
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: 600,
         color: "var(--fg)",
         letterSpacing: -0.3,
@@ -193,13 +193,13 @@ export const S = {
         border: "none",
         borderBottom: "1px solid var(--fg-muted)",
         outline: "none",
-        fontFamily: "'Outfit', sans-serif",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         padding: "0 0 1px 0",
         width: "auto",
         minWidth: 80,
     },
     countPill: {
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         fontSize: 11,
         color: "var(--fg-muted)",
         background: "rgba(255,255,255,0.03)",
@@ -211,7 +211,7 @@ export const S = {
         border: "1px solid var(--border)",
         color: "var(--fg-muted)",
         fontSize: 12,
-        fontFamily: "'Outfit', sans-serif",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         padding: "4px 12px",
         borderRadius: 0,
         cursor: "pointer",
@@ -223,10 +223,10 @@ export const S = {
     todoList: { flex: 1, overflowY: "auto", padding: "12px 32px 32px" },
     empty: { textAlign: "center", paddingTop: 80 },
     emptyIcon: { fontSize: 32, color: "var(--border)", marginBottom: 12 },
-    emptyText: { fontSize: 16, color: "var(--fg-muted)", fontWeight: 500 },
+    emptyText: { fontSize: 15, color: "var(--fg-muted)", fontWeight: 500 },
     emptyHint: { fontSize: 13, color: "var(--fg-muted)", marginTop: 6, opacity: 0.5 },
     sectionLabel: {
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         fontSize: 11,
         color: "var(--fg-muted)",
         letterSpacing: 1,
@@ -282,23 +282,23 @@ export const S = {
     checkmark: { fontSize: 11, color: "var(--accent)" },
 
     // Todo text
-    todoText: { flex: 1, fontSize: 14, lineHeight: 1.5, cursor: "pointer", color: "var(--fg)" },
-    todoTextDone: { flex: 1, fontSize: 14, textDecoration: "line-through", color: "var(--fg-muted)", cursor: "default" },
+    todoText: { flex: 1, fontSize: 13, lineHeight: 1.5, cursor: "pointer", color: "var(--fg)" },
+    todoTextDone: { flex: 1, fontSize: 13, textDecoration: "line-through", color: "var(--fg-muted)", cursor: "default" },
     editInput: {
         flex: 1,
         background: "rgba(255,255,255,0.04)",
         border: "1px solid rgba(255,255,255,0.1)",
         borderRadius: 0,
         color: "var(--fg)",
-        fontFamily: "'Outfit', sans-serif",
-        fontSize: 14,
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
+        fontSize: 13,
         padding: "4px 10px",
         outline: "none",
     },
 
     // Priority
     priorityPill: {
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         fontSize: 10,
         fontWeight: 600,
         padding: "1px 6px",
@@ -312,7 +312,7 @@ export const S = {
 
     // Badges & actions
     todoBadge: {
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         fontSize: 10,
         padding: "2px 7px",
         borderRadius: 0,
@@ -334,7 +334,7 @@ export const S = {
     // Completed section
     completedSection: { marginTop: 20, paddingTop: 16, borderTop: "1px solid var(--border)" },
     completedLabel: {
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
         fontSize: 11,
         color: "var(--fg-muted)",
         letterSpacing: 1,

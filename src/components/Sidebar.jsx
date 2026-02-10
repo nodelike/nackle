@@ -40,6 +40,7 @@ const Sidebar = memo(function Sidebar({
     onArchiveCollection,
     onDeleteCollection,
     onOpenSettings,
+    appVersion,
 }) {
     const [showNew, setShowNew] = useState(false);
     const [newName, setNewName] = useState("");
@@ -142,7 +143,7 @@ const Sidebar = memo(function Sidebar({
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 12px", marginBottom: 6 }}>
                     <span
                         style={{
-                            fontFamily: "'JetBrains Mono', monospace",
+                            fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
                             fontSize: 10,
                             fontWeight: 500,
                             color: "var(--fg-muted)",
@@ -159,7 +160,7 @@ const Sidebar = memo(function Sidebar({
                             border: "none",
                             color: "var(--fg-muted)",
                             fontSize: 14,
-                            fontFamily: "'JetBrains Mono', monospace",
+                            fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
                             cursor: "pointer",
                             padding: "0 2px",
                             lineHeight: 1,
@@ -265,7 +266,7 @@ const Sidebar = memo(function Sidebar({
                         gap: 16,
                         padding: "0 12px 10px",
                         fontSize: 10,
-                        fontFamily: "'JetBrains Mono', monospace",
+                        fontFamily: "'JetBrains Mono Nerd Font', 'JetBrains Mono', monospace",
                         justifyContent: "space-between",
                     }}>
                     <span style={{ color: "var(--accent)", opacity: 0.5 }}>
@@ -329,6 +330,12 @@ const Sidebar = memo(function Sidebar({
                         <Kbd>B</Kbd> <span>sidebar</span>
                     </div>
                 </div>
+
+                {appVersion && (
+                    <div style={{ padding: "8px 12px 0", fontSize: 10, color: "var(--fg-muted)", opacity: 0.3 }}>
+                        v{appVersion}
+                    </div>
+                )}
             </div>
         </div>
     );

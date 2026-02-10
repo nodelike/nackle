@@ -164,7 +164,7 @@ Some components define local style objects (`S` or `st`) at file top.
 **Design rules**:
 - `borderRadius: 0` everywhere — sharp corners, no rounding
 - CSS custom properties for theming (`--fg`, `--bg-rgb`, `--accent`, `--border`, etc.)
-- Fonts: `Outfit` (UI text), `JetBrains Mono` (monospace/badges)
+- Fonts: `JetBrains Mono Nerd Font` primary, `JetBrains Mono` fallback (single font everywhere)
 - 13 color themes defined in `constants.js`, each with 12 color properties
 
 ### Comments

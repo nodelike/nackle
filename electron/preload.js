@@ -28,6 +28,9 @@ contextBridge.exposeInMainWorld("db", {
   deleteForever: (id) => ipcRenderer.invoke("db:deleteForever", id),
   emptyArchive: () => ipcRenderer.invoke("db:emptyArchive"),
 
+  // App
+  getVersion: () => ipcRenderer.invoke("app:getVersion"),
+
   // Settings
   getSettings: () => ipcRenderer.invoke("app:getSettings"),
   saveSetting: (data) => ipcRenderer.invoke("app:saveSetting", data),
