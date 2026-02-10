@@ -31,7 +31,7 @@ jobs:
         working-directory: native
 
       - name: Build and publish
-        run: npm run release -- --arch ${{ matrix.arch }}
+        run: npm run release -- --${{ matrix.arch }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
