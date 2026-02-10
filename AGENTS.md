@@ -136,7 +136,7 @@ Root `TodoApp` is NOT wrapped in memo.
 
 - **Files (components)**: PascalCase `.jsx` — `TodoItem.jsx`, `CommandPalette.jsx`
 - **Files (utilities)**: camelCase `.js` — `constants.js`, `styles.js`
-- **Files (build scripts)**: kebab-case `.js` — `make-dmg.js`, `update-cask.js`
+- **Files (build scripts)**: kebab-case `.js` — `update-cask.js`, `afterPack.js`
 - **Variables/functions**: camelCase — `activeCollection`, `handleQuickCapture`
 - **Booleans**: `is*` or `can*` prefix — `isAll`, `isArchive`, `canDrag`
 - **Constants**: camelCase (not UPPER_CASE) — `defaultTheme`, `themeAccents`
