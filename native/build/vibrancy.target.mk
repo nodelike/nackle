@@ -64,7 +64,7 @@ INCS_Debug := \
 	-I/Users/nodelike/.electron-gyp/33.4.11/deps/uv/include \
 	-I/Users/nodelike/.electron-gyp/33.4.11/deps/zlib \
 	-I/Users/nodelike/.electron-gyp/33.4.11/deps/v8/include \
-	-I/Users/nodelike/proj/pers/tack/native/node_modules/node-addon-api
+	-I/Users/nodelike/proj/pers/nackle/native/node_modules/node-addon-api
 
 DEFS_Release := \
 	'-DNODE_GYP_MODULE_NAME=vibrancy' \
@@ -126,7 +126,7 @@ INCS_Release := \
 	-I/Users/nodelike/.electron-gyp/33.4.11/deps/uv/include \
 	-I/Users/nodelike/.electron-gyp/33.4.11/deps/zlib \
 	-I/Users/nodelike/.electron-gyp/33.4.11/deps/v8/include \
-	-I/Users/nodelike/proj/pers/tack/native/node_modules/node-addon-api
+	-I/Users/nodelike/proj/pers/nackle/native/node_modules/node-addon-api
 
 OBJS := \
 	$(obj).target/$(TARGET)/vibrancy.o

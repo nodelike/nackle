@@ -437,10 +437,10 @@
     "cache": "/Users/nodelike/.npm",
     "node_gyp": "/opt/homebrew/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js",
     "npm_version": "11.8.0",
-    "init_module": "/Users/nodelike/.npm-init.js",
     "userconfig": "/Users/nodelike/.npmrc",
+    "init_module": "/Users/nodelike/.npm-init.js",
     "globalconfig": "/opt/homebrew/etc/npmrc",
-    "local_prefix": "/Users/nodelike/proj/pers/tack",
+    "local_prefix": "/Users/nodelike/proj/pers/nackle",
     "global_prefix": "/opt/homebrew"
   }
 }
