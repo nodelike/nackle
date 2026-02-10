@@ -1,6 +1,6 @@
 {
   "name": "nackle",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": true,
   "description": "Fast, minimal, shortcut-driven todo app",
   "author": "Nackle",
