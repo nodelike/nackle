@@ -1,0 +1,74 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-mac:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        arch: [x64, arm64]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build native vibrancy module
+        run: npx node-gyp rebuild
+        working-directory: native
+
+      - name: Build and publish
+        run: npm run release -- --arch ${{ matrix.arch }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  update-homebrew:
+    needs: build-mac
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout nackle (for update-cask script)
+        uses: actions/checkout@v4
+        with:
+          path: nackle
+
+      - name: Checkout homebrew-tap
+        uses: actions/checkout@v4
+        with:
+          repository: nodelike/homebrew-tap
+          token: ${{ secrets.HOMEBREW_TAP_GITHUB_TOKEN }}
+          path: homebrew-tap
+
+      - name: Download DMGs and compute SHA256
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          BASE="https://github.com/nodelike/nackle/releases/download/v${VERSION}"
+          curl -fsSL "${BASE}/Nackle-${VERSION}-arm64.dmg" -o arm64.dmg
+          curl -fsSL "${BASE}/Nackle-${VERSION}-x64.dmg" -o x64.dmg
+          echo "VERSION=${VERSION}" >> "$GITHUB_ENV"
+          echo "ARM64_SHA=$(sha256sum arm64.dmg | awk '{print $1}')" >> "$GITHUB_ENV"
+          echo "X64_SHA=$(sha256sum x64.dmg | awk '{print $1}')" >> "$GITHUB_ENV"
+
+      - name: Generate Cask formula
+        run: node nackle/build/update-cask.js "$VERSION" "$ARM64_SHA" "$X64_SHA" homebrew-tap/Casks/nackle.rb
+
+      - name: Commit and push to homebrew-tap
+        working-directory: homebrew-tap
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Casks/nackle.rb
+          git commit -m "Brew cask update for nackle version v${VERSION}"
+          git push

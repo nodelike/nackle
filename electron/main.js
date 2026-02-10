@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const { execFileSync } = require("child_process");
 const Database = require("better-sqlite3");
+const { autoUpdater } = require("electron-updater");
 
 let vibrancy;
 try {
@@ -373,6 +374,20 @@ function createWindow() {
   }
 }
 
+// ── Auto-updater ──
+function initAutoUpdater() {
+  // Don't check for updates in dev mode
+  if (process.env.VITE_DEV_SERVER_URL) return;
+
+  autoUpdater.autoDownload = true;
+  autoUpdater.autoInstallOnAppQuit = true;
+  autoUpdater.logger = null; // silence logs
+
+  autoUpdater.checkForUpdates().catch(() => {
+    // silently ignore update check failures (offline, etc.)
+  });
+}
+
 // Theme accent lookup — must match constants.js themes
 const themeAccents = {
   aura: "#a277ff", catppuccinMocha: "#89b4fa", catppuccinMacchiato: "#8aadf4",
@@ -385,6 +400,7 @@ app.whenReady().then(() => {
   initDB();
   registerIPC();
   createWindow();
+  initAutoUpdater();
 
   // Set dock icon with current theme's accent on startup
   const s = getSettings();
