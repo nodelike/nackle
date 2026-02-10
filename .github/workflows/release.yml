@@ -35,8 +35,17 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  update-homebrew:
+  publish-release:
     needs: build-mac
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish draft release
+        run: gh release edit "${{ github.ref_name }}" --draft=false --repo "${{ github.repository }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  update-homebrew:
+    needs: publish-release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout nackle (for update-cask script)
