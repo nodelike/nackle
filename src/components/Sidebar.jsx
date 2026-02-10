@@ -40,7 +40,6 @@ const Sidebar = memo(function Sidebar({
     onArchiveCollection,
     onDeleteCollection,
     onOpenSettings,
-    appVersion,
 }) {
     const [showNew, setShowNew] = useState(false);
     const [newName, setNewName] = useState("");
@@ -331,11 +330,6 @@ const Sidebar = memo(function Sidebar({
                     </div>
                 </div>
 
-                {appVersion && (
-                    <div style={{ padding: "8px 12px 0", fontSize: 10, color: "var(--fg-muted)", opacity: 0.3 }}>
-                        v{appVersion}
-                    </div>
-                )}
             </div>
         </div>
     );

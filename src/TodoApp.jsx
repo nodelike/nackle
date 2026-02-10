@@ -469,7 +469,6 @@ export default function TodoApp() {
                 onArchiveCollection={archiveCollection}
                 onDeleteCollection={deleteCollection}
                 onOpenSettings={() => setActiveCollection("__settings__")}
-                appVersion={appVersion}
             />
 
             <div style={S.main}>
